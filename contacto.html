@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto</title>
+    <style>
+        /* Estilo general para el cuerpo */
+        body.fondo {
+            font-family: Arial, sans-serif;
+            background-color: #ececec; /* Fondo menos brillante */
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Estilo para el header */
+        .header {
+            background-color: #333;
+            padding: 10px 0;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            margin-right: 20px;
+        }
+
+        .logo img {
+            height: 50px;
+            vertical-align: middle;
+        }
+
+        .search-form {
+            flex-grow: 1;
+            display: flex;
+            margin: 0 20px;
+        }
+
+        .search-form input {
+            width: 70%; /* Ajusta el tamaño de la barra de búsqueda */
+            padding: 10px;
+            border: none;
+            border-radius: 4px 0 0 4px;
+            outline: none;
+        }
+
+        .search-form button {
+            width: 30%; /* Ajusta el tamaño del botón de búsqueda */
+            background-color: #bcc3c9;
+            border: none;
+            padding: 0 15px;
+            cursor: pointer;
+            border-radius: 0 4px 4px 0;
+            color: white;
+        }
+
+        .icons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .icons a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 20px;
+        }
+
+        .icons a:hover {
+            color: #bcc3c9;
+        }
+
+        /* Estilo para el carrito de compras */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .cart-form {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 300px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            right: 0; /* Ajusta el formulario a la derecha del contenedor */
+            top: 100%; /* Coloca el formulario justo debajo del ícono */
+            border-radius: 4px;
+            padding: 10px;
+        }
+
+        .cart-form input[type="text"],
+        .cart-form input[type="number"],
+        .cart-form input[type="submit"] {
+            width: calc(100% - 20px);
+            padding: 8px;
+            margin: 5px 0;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+
+        .cart-form input[type="submit"] {
+            background-color: #0a74da;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cart-form input[type="submit"]:hover {
+            background-color: #094a8e;
+        }
+
+        .dropdown:hover .cart-form {
+            display: block;
+        }
+
+        /* Estilo para la navegación */
+        .nav {
+            background-color: #333;
+            width: 100%;
+            box-sizing: border-box;
+            margin-top: 0; /* Restablecer a 0 para restaurar el espacio original */
+        }
+
+        nav ul.menu {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+            overflow: hidden;
+            border-radius: 8px;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            border-bottom: 4px solid #333; /* Línea gris del borde */
+        }
+
+        nav ul.menu li {
+            margin: 0 10px;
+        }
+
+        nav ul.menu li a {
+            display: inline-block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            font-size: 16px;
+            border-radius: 4px; /* Para que los botones tengan esquinas redondeadas */
+        }
+
+        nav ul.menu li a:hover {
+            background-color: #bcc3c9;
+        }
+
+        /* Estilo para el contenedor del formulario de contacto */
+        .container {
+            max-width: 800px; /* Aumenta el ancho máximo */
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .container h1 {
+            color: #083d60;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 16px;
+            color: #083d60;
+            margin-bottom: 5px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            box-sizing: border-box;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            height: 150px;
+        }
+
+        button {
+            background-color: #0a74da;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            display: block;
+            width: 100%;
+            text-align: center;
+        }
+
+        button:hover {
+            background-color: #094a8e;
+        }
+    </style>
+</head>
+<body class="fondo">
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <img src="img/Logo.png" alt="Tecnolife Logo">
+            </div>
+            <form class="search-form">
+                <input type="text" placeholder="Buscar productos...">
+                <button type="submit">Buscar</button>
+            </form>
+            <div class="icons">
+                <a href="#"><i class="fas fa-user"></i></a>
+                <div class="dropdown">
+                    <a href="#"><i class="fas fa-shopping-cart"></i></a>
+                    <div class="cart-form">
+                        <input type="text" placeholder="Producto">
+                        <input type="number" placeholder="Cantidad">
+                        <input type="submit" value="Añadir al carrito">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav class="nav">
+            <ul class="menu">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="producto.html">Productos</a></li>
+                <li><a href="categoria.html">Categorías</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <h1>Contáctanos</h1>
+            <form action="mailto:tu_correo@ejemplo.com" method="post" enctype="text/plain">
+                <div class="form-group">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" required>  
+                </div>
+                <div class="form-group">
+                    <label for="correo">Correo electrónico:</label>
+                    <input type="email" id="correo" name="correo" required>
+                </div>
+                <div class="form-group">
+                    <label for="mensaje">Mensaje:</label>  
+                    <textarea id="mensaje" name="mensaje" required></textarea>
+                </div>
+                <button type="submit">Enviar</button>
+            </form>  
+        </div>
+    </main>
+      
+    <footer>2024 Derechos reservados</footer>
+</body>
+</html>
